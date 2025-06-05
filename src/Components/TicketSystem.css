@@ -1,0 +1,212 @@
+.parent_container {
+    background-color: #f7f8f9;
+    min-height: 94.5vh;
+    padding: 30px;
+    box-sizing: border-box;
+
+}
+
+.parent_container_top {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* .parent_container_top {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    width: 92%;
+    height: 50%;
+    padding-left: 50px;
+    padding-right: 100px;
+    gap: 50px;
+} */
+
+/* .parent_container_top_left {
+    width: 50%;
+    height: 40vh;
+    border-radius: 5px;
+    box-shadow: 0.5px 0.5px 3px #c2c1c1;
+} */
+
+/* .parent_container_top_right {
+    width: 50%;
+    height: 40vh;
+    box-shadow: 0.5px 0.5px 3px #c2c1c1;
+} */
+
+.parent_container_top_left,
+.parent_container_top_right {
+    flex: 1;
+    background-color: #fff;
+    padding: 5px;
+    height: 40vh;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* .parent_container_bottom {
+    margin-top: 40px;
+    width: 92%;
+    padding-left: 50px;
+    border-radius: 5px;
+} */
+.parent_container_bottom_inner {
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+    height: 42vh;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    overflow-y: auto;
+}
+
+/* .parent_container_bottom_inner {
+    box-shadow: 0.5px 0.5px 3px #c2c1c1;
+    border-radius: 5px;
+    height: 45vh;
+} */
+
+hr {
+    height: 1px;
+    border: none;
+    background-color: #ccc;
+    margin: 10px 0;
+}
+
+.card_heading {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.5px;
+    text-align: left;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.card_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 30px;
+}
+
+.sort_dropdown {
+    padding: 6px 5px;
+    border: 1px solid #5f5f5f;
+    border-radius: 3px;
+    background-color: #f7f8f9;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sort_dropdown:hover {
+    border-color: #007bff;
+}
+
+.parent_container_bottom_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #fff;
+    font-size: 14px;
+}
+
+.parent_container_bottom_table_thead {
+    background-color: #f8f9fa;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.parent_container_bottom_table_thead_th {
+    padding: 10px;
+    border-bottom: 2px solid #ddd;
+    text-align: center;
+    color: #242323;
+}
+
+.agent_name {
+    text-align: left;
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.parent_container_top_left_peichart {
+    display: flex;
+    /* justify-content: space-evenly; */
+    gap: 200px;
+}
+
+.parent_container_top_left_peichart_content {
+    margin-top: 60px;
+    line-height: 25px;
+    font-size: 14px;
+}
+
+.parent_container_top_left_peichart_content__first {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.parent_container_top_left_peichart_content_technicalissues {
+    width: 50px;
+    height: 10px;
+    border: 2px solid #faacbb;
+    background-color: #ffe0e6;
+}
+
+.parent_container_top_left_peichart_content_billing {
+    width: 50px;
+    height: 10px;
+    border: 2px solid #9ed6ff;
+    background-color: #d7ecfb;
+}
+
+.parent_container_top_left_peichart_content_features {
+    width: 50px;
+    height: 10px;
+    border: 2px solid #f8dd9f;
+    background-color: #fff5dd;
+}
+
+.parent_container_top_left_peichart_content_account {
+    width: 50px;
+    height: 10px;
+    border: 2px solid #b2e6e6;
+    background-color: #dbf2f2;
+}
+
+.parent_container_top_left_peichart_content_general {
+    width: 50px;
+    height: 10px;
+    border: 2px solid #c1ace7;
+    background-color: #ebe0ff;
+}
+
+.parent_container_top_left_peichart_content_bugreport {
+    width: 50px;
+    height: 10px;
+    border: 2px solid #f1c293;
+    background-color: #ffecd9;
+}
+
+.parent_container_top_left_peichart_content_service {
+    width: 50px;
+    height: 10px;
+    border: 2px solid #d8d5d5;
+    background-color: #f4f4f4;
+}

@@ -1,0 +1,200 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f8f9;
+    overflow: hidden;
+}
+
+
+.parent_container_report {
+    background-color: #f7f8f9;
+    min-height: 100vh;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-sizing: border-box;
+}
+
+.parent_container_report_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.parent_container_report_heading_main {
+    line-height: 10px;
+}
+
+.parent_container_report_heading {
+    font-size: 38px;
+}
+
+.parent_container_report_heading_h6 {
+    font-size: 12px;
+    color: #6d6d6d;
+}
+
+.parent_container_report_top_btn_generate_report {
+    align-items: center;
+    height: 20px;
+    width: 160px;
+    background-color: #0056b3;
+    display: flex;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.generateNew_report_icon {
+    width: 15px;
+}
+
+.parent_container_report_top_btn {
+    background-color: #0056b3;
+    color: #ffffff;
+    border: none;
+}
+
+.parent_middel_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card {
+    width: 500px;
+    height: 200px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left;
+    padding-left: 50px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.parent_middel_container_top {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    height: 50px;
+}
+
+.parent_middel_container_top_image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* background-color: #0d6efd; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .parent_middel_container_top_image img {
+ width: 65%;
+  height: 65%;
+  object-fit: contain;
+} */
+
+.customer_satisfaction_png{
+    width: 75%;
+  height: 75%;
+  object-fit: contain;
+}
+
+.parent_middel_container_top_heading {
+    font-size: 16px;
+}
+
+.card_content_p {
+    font-family: 12px;
+}
+
+.card_button{
+    height: 25px;
+    width: 120px;
+    margin-top: 20px;
+    border: 1px solid #1f6bbc;
+    color: #1f6bbc;
+    border-radius: 2px;
+    background-color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+.parent_bottom_container {
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    height: 21vh;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    overflow-y: auto;
+    margin-top: 30px;
+}
+
+hr {
+    height: 1px;
+    border: none;
+    background-color: #ccc;
+    margin: 10px 0;
+}
+
+.parent_middel_container_heading {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.5px;
+    text-align: left;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.parent_middel_container_table_parent {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.parent_bottom_container_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #fff;
+    font-size: 14px;
+}
+
+thead {
+    background-color: #f8f9fa;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.parent_bottom_container_table_th {
+    padding: 5px;
+    border-bottom: 2px solid #ddd;
+    text-align: center;
+    color: #242323;
+}
+
+.agent_name {
+    text-align: left;
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
