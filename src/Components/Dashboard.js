@@ -703,6 +703,8 @@ import resolvedicon from './Assets/resolveddashboard.png';
 import resolutiontimeicon from './Assets/hoursglassyellow.png';
 import responsetimeicon from './Assets/leftturnblue.png';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend } from 'recharts';
+const API_URL = process.env.REACT_APP_API_URL;
+
 
 const DashboardCompo = () => {
     const [period, setPeriod] = useState('weekly');
@@ -736,7 +738,7 @@ const DashboardCompo = () => {
         const formattedEndDate = formatDate(endDate);
 
         // Fetch karo data
-        fetch(`http://localhost:8500/api/dashboard?startDate=${formattedStartDate}&endDate=${formattedEndDate}`)
+        fetch(`${API_URL}/dashboard?startDate=${formattedStartDate}&endDate=${formattedEndDate}`)
             .then((res) => res.json())
             .then((data) => {
                 setDashboardData({
@@ -757,23 +759,23 @@ const DashboardCompo = () => {
     const avgResolutionTime = dashboardData.avgResolutionTime;
     const avgFirstResponseTime = dashboardData.avgFirstResponseTime;
 
-    const parseDate = (dateStr) => {
+    // const parseDate = (dateStr) => {
 
-        const currentYear = new Date().getFullYear();
-        return new Date(`${dateStr} ${currentYear}`);
-    };
+    //     const currentYear = new Date().getFullYear();
+    //     return new Date(`${dateStr} ${currentYear}`);
+    // };
 
 
-    const today = new Date();
+    // const today = new Date();
 
-    const filterByDateRange = (data, range) => {
-        return data.filter(item => {
-            const itemDate = parseDate(item.name);
-            const diffTime = today - itemDate;
-            const diffDays = diffTime / (1000 * 60 * 60 * 24);
-            return diffDays <= range;
-        });
-    };
+    // const filterByDateRange = (data, range) => {
+    //     return data.filter(item => {
+    //         const itemDate = parseDate(item.name);
+    //         const diffTime = today - itemDate;
+    //         const diffDays = diffTime / (1000 * 60 * 60 * 24);
+    //         return diffDays <= range;
+    //     });
+    // };
 
 
     useEffect(() => {
@@ -791,7 +793,7 @@ const DashboardCompo = () => {
         const formattedStartDate = formatDate(startDate);
         const formattedEndDate = formatDate(endDate);
 
-        fetch(`http://localhost:8500/api/chartdata?startDate=${formattedStartDate}&endDate=${formattedEndDate}&groupBy=${period}`)
+        fetch(`${API_URL}/chartdata?startDate=${formattedStartDate}&endDate=${formattedEndDate}&groupBy=${period}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log("Fetched Chart Data: ", data);
@@ -810,35 +812,6 @@ const DashboardCompo = () => {
     }, [period, dateRange]);
 
 
-
-    // const dailyData = [
-    //     { name: 'Apr 28', tickets: 20, resolved: 18, avgResolutionTime: 26.4, firstResponseTime: 1.2 },
-    //     { name: 'Apr 29', tickets: 18, resolved: 16, avgResolutionTime: 25.1, firstResponseTime: 1.0 },
-    //     { name: 'Apr 30', tickets: 22, resolved: 20, avgResolutionTime: 30.0, firstResponseTime: 1.4 },
-    //     { name: 'May 1', tickets: 25, resolved: 21, avgResolutionTime: 28.5, firstResponseTime: 1.1 },
-    //     { name: 'May 2', tickets: 15, resolved: 12, avgResolutionTime: 24.3, firstResponseTime: 0.9 },
-    //     { name: 'May 24', tickets: 10, resolved: 9, avgResolutionTime: 20.8, firstResponseTime: 1.3 },
-    //     { name: 'May 25', tickets: 20, resolved: 18, avgResolutionTime: 29.2, firstResponseTime: 1.5 },
-    // ];
-
-
-    // const weeklyData = [
-    //     { name: 'Apr 28 - May 5', tickets: 130, resolved: 120, avgResolutionTime: 27.5, firstResponseTime: 1.1 },
-    //     { name: 'May 5 - May 12', tickets: 150, resolved: 135, avgResolutionTime: 29.0, firstResponseTime: 1.0 },
-    //     { name: 'May 12 - May 19', tickets: 130, resolved: 110, avgResolutionTime: 26.3, firstResponseTime: 1.2 },
-    //     { name: 'May 19 - May 26', tickets: 50, resolved: 45, avgResolutionTime: 22.4, firstResponseTime: 1.3 },
-    //     { name: 'May 26 - May 28', tickets: 90, resolved: 85, avgResolutionTime: 24.8, firstResponseTime: 1.1 },
-    // ];
-
-
-    // const monthlyData = [
-    //     { name: 'Jan', tickets: 450, resolved: 420, avgResolutionTime: 30.2, firstResponseTime: 1.3 },
-    //     { name: 'Feb', tickets: 560, resolved: 530, avgResolutionTime: 29.5, firstResponseTime: 1.2 },
-    //     { name: 'Mar', tickets: 600, resolved: 580, avgResolutionTime: 28.7, firstResponseTime: 1.1 },
-    //     { name: 'Apr', tickets: 700, resolved: 660, avgResolutionTime: 27.4, firstResponseTime: 1.0 },
-    //     { name: 'May', tickets: 500, resolved: 470, avgResolutionTime: 25.9, firstResponseTime: 1.0 },
-    // ];
-
     // let dataToShow;
     // if (period === 'daily') {
     //     dataToShow = filterByDateRange(dailyData, Number(dateRange));
@@ -848,9 +821,9 @@ const DashboardCompo = () => {
     //     dataToShow = monthlyData;
     // }
 
-    // let dataToShow = chartData;
+    let dataToShow = chartData;
 
-    let dataToShow = filterByDateRange(chartData, Number(dateRange));
+    // let dataToShow = filterByDateRange(chartData, Number(dateRange));
 
     // let dataToShow = period === 'daily' ? filterByDateRange(chartData, Number(dateRange)) : chartData;
 

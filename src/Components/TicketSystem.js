@@ -294,6 +294,7 @@ import {
     //    Legend 
 } from 'recharts';
 import axios from 'axios';
+const API_URL = process.env.REACT_APP_API_URL;
 
 
 const TicketSystemCompo = () => {
@@ -307,7 +308,7 @@ const TicketSystemCompo = () => {
 
     //   ****************     Get  Agent Name and Data  **************
     useEffect(() => {
-        axios.get('http://localhost:8500/api/agentperformance')
+        axios.get(`${API_URL}/agentperformance`)
             .then(response => setData(response.data))
             .catch(error => console.error('Error:', error));
     }, []);
@@ -318,7 +319,7 @@ const TicketSystemCompo = () => {
     useEffect(() => {
         const fetchResolutionData = async () => {
             try {
-                const response = await axios.get('http://localhost:8500/api/resolutiontimedistribution');
+                const response = await axios.get(`${API_URL}/resolutiontimedistribution`);
                 setBarData(response.data);
             } catch (error) {
                 console.error('Error fetching resolution data:', error);
@@ -334,7 +335,7 @@ const TicketSystemCompo = () => {
     //    ****************************     Get Ticket Category  Data **************
 
     useEffect(() => {
-        axios.get("http://localhost:8500/api/categoryTicket")
+        axios.get(`${API_URL}/categoryTicket`)
             .then(response => setPieData(response.data))
             .catch(error => console.error('Error:', error));
     }, [])
