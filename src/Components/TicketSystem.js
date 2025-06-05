@@ -337,7 +337,7 @@ const TicketSystemCompo = () => {
         axios.get("http://localhost:8500/api/categoryTicket")
             .then(response => setPieData(response.data))
             .catch(error => console.error('Error:', error));
-    })
+    }, [])
 
 
 
@@ -475,34 +475,7 @@ const TicketSystemCompo = () => {
                             </div>
                         </div>
                     </div>
-                    {/* <hr />
-                    <PieChart width={300} height={300} className='PieChart_left'>
-                        <Pie
-                            dataKey="value"
-                            isAnimationActive={false}
-                            data={[
-                                { name: 'Technical Support', value: 30 },
-                                { name: 'Billing Issues', value: 5 },
-                                { name: 'Feature Requests', value: 10 },
-                                { name: 'Account Management', value: 15 },
-                                { name: 'General Inquiries', value: 20 },
-                                { name: 'Bug Reports', value: 25 },
-                                { name: 'Service Outages', value: 10 },
-                            ]}
-                            cx="50%"
-                            cy="50%"
-                            outerRadius={70}
-                            fill="#8884d8"
-                            label
-                        >
-                            {
-                                ['#f87171', '#60a5fa', '#34d399', '#fbbf24', '#a78bfa', '#f59e0b', '#d1d5db'].map((color, index) => (
-                                    <Cell key={`cell-${index}`} fill={color} />
-                                ))
-                            }
-                        </Pie>
-                        <Tooltip />
-                    </PieChart> */}
+                  
 
                 </div>
                 <div className='parent_container_top_right'>
@@ -516,18 +489,6 @@ const TicketSystemCompo = () => {
                         margin={{ top: 5, right: 30, left: 50, bottom: 30 }}
                     >
                         <CartesianGrid strokeDasharray="0.5 1" />
-                        {/* <XAxis
-                            type="number"
-                            ticks={generateTicks(Math.max(...barData.map(d => d.value)))}
-                            domain={0 - 50}
-                        /> */}
-
-                        {/* <XAxis
-                            type="number"
-                            ticks={generateTicks(50)}
-                            domain={[0, 50]}
-                        /> */}
-
                         <XAxis
                             type="number"
                             ticks={generateTicks(finalMax)}
@@ -551,30 +512,6 @@ const TicketSystemCompo = () => {
                         </Bar>
 
                     </BarChart>
-
-
-                    {/* <BarChart
-                        width={800}
-                        height={350}
-                        data={[
-                            { name: '< 1 hour', value: 10 },
-                            { name: '1-4 hours', value: 20 },
-                            { name: '4-8 hours', value: 48 },
-                            { name: '8-24 hours', value: 40 },
-                            { name: '1-3 days', value: 22 },
-                            { name: '3-7 days', value: 20 },
-                            { name: '> 7 days', value: 10 },
-                        ]}
-                        layout="vertical"
-                        margin={{ top: 5, right: 30, left: 50, bottom: 25 }}
-                    >
-                        <CartesianGrid strokeDasharray="5 8" />
-                        <XAxis type="number" />
-                        <YAxis dataKey="name" type="category" />
-                        <Tooltip />
-                        <Legend />
-                        <Bar dataKey="value" fill="#8884d8" />
-                    </BarChart> */}
 
                 </div>
             </div>
