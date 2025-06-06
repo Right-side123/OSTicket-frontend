@@ -210,3 +210,98 @@ tbody tr:hover {
     border: 2px solid #d8d5d5;
     background-color: #f4f4f4;
 }
+
+.PieChart_left {
+    transform: scale(1);
+    transform-origin: top left;
+}
+
+.barchart_ticketsystem {
+    transform: scale(1);
+    transform-origin: top left;
+}
+
+
+
+@media (max-width: 1690px) {
+    .parent_container {
+        min-height: 94.5vh;
+        padding: 20px;
+    }
+
+    .parent_container_top {
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .parent_container_top_left,
+    .parent_container_top_right {
+        flex: 1;
+        height: 40vh;
+        width: 350px;
+    }
+
+    .parent_container_bottom_inner {
+        height: 40vh;
+
+    }
+
+    hr {
+        margin: 0% 0;
+    }
+
+
+    .card_heading {
+        font-size: 14px;
+        margin: 0 0 2px 0;
+    }
+
+    .parent_container_bottom_table {
+        margin-top: 5px;
+        font-size: 12px;
+    }
+
+    .parent_container_bottom_table_thead_th {
+        padding: 5px;
+    }
+
+    tbody td {
+        padding: 10px;
+    }
+
+    .sort_dropdown {
+    padding: 3px 2px;
+    font-size: 12px;
+
+    }
+
+    .parent_container_top_left_peichart {
+        gap: 0px;
+    }
+
+    .parent_container_top_left_peichart_content {
+        margin-top: 25px;
+        line-height: 20px;
+        font-size: 12px;
+        /* width: 240px; */
+
+    }
+
+    .peichartresponsive {
+        width: 340px;
+        padding: 0;
+    }
+
+
+    .PieChart_left {
+        transform: scale(0.6);
+        margin-left: 20px;
+    }
+
+    .barchart_ticketsystem {
+        transform: scale(0.6);
+        margin-left: 20px;
+        font-size: 18px;
+    }
+
+}

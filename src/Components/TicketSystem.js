@@ -357,7 +357,36 @@ const TicketSystemCompo = () => {
     //     { name: 'Ajay', assigned: 80, closed: 40, closerrate: '50%', responsetime: '1.42h', resolutiontime: '1.2h' }
     // ])
 
+    const pieFillColors = ['#ffe0e6', '#f4f4f4', '#ebe0ff', '#ffecd9', '#dbf2f2', '#fff5dd', '#d7ecfb'];
+    const pieBorderColors = ['#e899a5', '#cccccc', '#bfa8f2', '#ffbb99', '#99d6d6', '#ffddaa', '#99c2f2'];
+
+
     const barColors = ['#dbf2f2', '#d7ecfb', '#d5bfff', '#fff5dd', '#ffecd9', '#ffe0e6', '#f4f4f4'];
+    const barBorderColors = ['#bae7e7', '#a8d7f6', '#d2bcff', '#fff0ce', '#ffd6af', '#ffb9c8', '#e6e6e6'];
+    const CustomBarShape = (props) => {
+        const { x, y, width, height, index } = props;
+        const fill = barColors[index % barColors.length];
+        const stroke = barBorderColors[index % barBorderColors.length];
+
+        return (
+            <>
+                <rect
+                    x={x}
+                    y={y}
+                    width={width}
+                    height={height}
+                    fill={fill}
+                    rx={3}
+                />
+
+                <line x1={x} y1={y} x2={x + width} y2={y} stroke={stroke} strokeWidth={1.5} />
+
+                <line x1={x + width} y1={y} x2={x + width} y2={y + height} stroke={stroke} strokeWidth={1.5} />
+
+                <line x1={x} y1={y + height} x2={x + width} y2={y + height} stroke={stroke} strokeWidth={1.5} />
+            </>
+        );
+    };
 
     // const barData = [
     //     { name: '< 1 hour', value: 10 },
@@ -401,8 +430,6 @@ const TicketSystemCompo = () => {
         setData(sortedData);
     };
 
-
-
     return (
         <div className='parent_container'>
             <div className='parent_container_top'>
@@ -411,7 +438,7 @@ const TicketSystemCompo = () => {
                     <h5 className='card_heading'>Tickets by Category</h5>
                     <hr />
                     <div className='parent_container_top_left_peichart'>
-                        <div>
+                        <div className='peichartresponsive'>
                             <PieChart width={400} height={400}
                                 margin={{ top: 0, right: 0, left: 80, bottom: 80 }}
                                 className="PieChart_left">
@@ -438,7 +465,13 @@ const TicketSystemCompo = () => {
                                 >
                                     {
                                         ['#ffe0e6', '#f4f4f4', '#ebe0ff', '#ffecd9', '#dbf2f2', '#fff5dd', '#d7ecfb'].map((color, index) => (
-                                            <Cell key={`cell-${index}`} fill={color} />
+                                            <Cell
+                                                key={`cell-${index}`}
+                                                fill={pieFillColors[index % pieFillColors.length]}
+                                                stroke={pieBorderColors[index % pieBorderColors.length]}
+                                                strokeWidth={2}
+                                            />
+
                                         ))
                                     }
                                 </Pie>
@@ -476,13 +509,14 @@ const TicketSystemCompo = () => {
                             </div>
                         </div>
                     </div>
-                  
+
 
                 </div>
                 <div className='parent_container_top_right'>
                     <h5 className='card_heading'>Resolution Time Distribution</h5>
                     <hr />
                     <BarChart
+                    className='barchart_ticketsystem'
                         width={900}
                         height={350}
                         data={barData}
@@ -506,9 +540,10 @@ const TicketSystemCompo = () => {
 
                         <Tooltip cursor={{ fill: 'transparent' }} />
                         {/* <Legend /> */}
-                        <Bar dataKey="value" minPointSize={5}>
+                        <Bar dataKey="value" minPointSize={5}
+                            shape={(props) => <CustomBarShape {...props} index={props.index} />}>
                             {barData.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={barColors[index % barColors.length]} />
+                                <Cell key={`cell-${index}`} />
                             ))}
                         </Bar>
 

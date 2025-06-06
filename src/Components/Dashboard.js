@@ -929,7 +929,9 @@ const DashboardCompo = () => {
                 <div style={{ width: '100%', height: 450 }} className='bottom_conatiner_parent_barchart'>
                     <Legend />
                     <ResponsiveContainer>
-                        <BarChart data={dataToShow}
+                        <BarChart 
+                        className='barchart_dashboard'
+                        data={dataToShow}
                             margin={{ top: 10, right: 30, left: 30, bottom: 80 }}>
                             <CartesianGrid strokeDasharray="1 1" />
                             <XAxis dataKey="name"

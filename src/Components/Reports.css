@@ -106,7 +106,7 @@ body {
 }
 
 .card_content_p {
-    font-family: 12px;
+    font-size: 16px;
 }
 
 .card_button{
@@ -197,4 +197,61 @@ tbody td {
 
 tbody tr:hover {
     background-color: #f9f9f9;
+}
+
+
+@media (max-width: 1690px){
+   .parent_container_report_heading {
+    font-size: 24px;
+} 
+
+.parent_middel_container {
+    gap: 10px;
+}
+
+.card {
+    width: 320px;
+    height: 110px;
+    padding: 5px;
+    padding-left: 15px;
+}
+
+.parent_middel_container_top {
+    height: 30px;
+}
+.parent_middel_container_top_image {
+    width: 30px;
+    height: 30px;
+}
+.customer_satisfaction_png{
+    width: 90%;
+  height: 90%;
+}
+.parent_middel_container_top_heading {
+    font-size: 14px;
+}
+.card_content_p {
+    font-size: 10px;
+}
+.card_button{
+    height: 20px;
+    width: 120px;
+    margin-top: 0px;
+}
+
+.parent_bottom_container {
+    height: 28vh;
+    margin-top:10px;
+}
+
+hr {
+    margin: 0px 0;
+}
+.parent_middel_container_heading {
+    font-size: 14px;
+}
+.parent_bottom_container_table {
+    margin-top: 5px;
+    font-size: 12px;
+}
 }
