@@ -37,6 +37,10 @@
     border-radius: 3px;
 }
 
+.parent_container_dashboard_top_right_button_btn:hover {
+    box-shadow: 0px 2px 4px #023975;
+}
+
 .middle_container_parent {
     display: flex;
     justify-content: space-between;

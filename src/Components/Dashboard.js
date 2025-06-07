@@ -711,6 +711,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 const DashboardCompo = () => {
     const [period, setPeriod] = useState('weekly');
     const [dateRange, setDateRange] = useState('30');
+    const [tempdaterange, setTempDateRange] = useState('30')
 
     const [dashboardData, setDashboardData] = useState({
         totalTickets: 0,
@@ -884,8 +885,8 @@ const DashboardCompo = () => {
                     <div className='parent_container_dashboard_top_right_button'>
                         <select
                             className='sort_dropdown'
-                            value={dateRange}
-                            onChange={(e) => setDateRange(e.target.value)}
+                            value={tempdaterange}
+                            onChange={(e) => setTempDateRange(e.target.value)}
                         >
                             <option value="30">Last 30 Days</option>
                             <option value="15">Last 15 Days</option>
@@ -893,9 +894,7 @@ const DashboardCompo = () => {
                         </select>
                         <button
                             className='parent_container_dashboard_top_right_button_btn'
-                            onClick={() => {
-                                // API call useEffect me dateRange ke change se automatic ho jaega, isliye kuch karne ki zarurat nahi
-                            }}
+                            onClick={() => setDateRange(tempdaterange)}
                         >
                             Update
                         </button>
