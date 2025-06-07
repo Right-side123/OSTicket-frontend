@@ -95,10 +95,10 @@ body {
   object-fit: contain;
 } */
 
-.customer_satisfaction_png{
+.customer_satisfaction_png {
     width: 75%;
-  height: 75%;
-  object-fit: contain;
+    height: 75%;
+    object-fit: contain;
 }
 
 .parent_middel_container_top_heading {
@@ -109,7 +109,7 @@ body {
     font-size: 16px;
 }
 
-.card_button{
+.card_button {
     height: 25px;
     width: 120px;
     margin-top: 20px;
@@ -200,58 +200,70 @@ tbody tr:hover {
 }
 
 
-@media (max-width: 1690px){
-   .parent_container_report_heading {
-    font-size: 24px;
-} 
+/* ************************   ******************      ******     ***      *       *     ***     *****      *****************      ***********************
+**********************************                                            Responsive                                               ********************
+***************************   ******************      ******     ***      *       *     ****    *****      *****************       ********************* */
 
-.parent_middel_container {
-    gap: 10px;
-}
 
-.card {
-    width: 320px;
-    height: 110px;
-    padding: 5px;
-    padding-left: 15px;
-}
+@media (max-width: 1690px) {
+    .parent_container_report_heading {
+        font-size: 24px;
+    }
 
-.parent_middel_container_top {
-    height: 30px;
-}
-.parent_middel_container_top_image {
-    width: 30px;
-    height: 30px;
-}
-.customer_satisfaction_png{
-    width: 90%;
-  height: 90%;
-}
-.parent_middel_container_top_heading {
-    font-size: 14px;
-}
-.card_content_p {
-    font-size: 10px;
-}
-.card_button{
-    height: 20px;
-    width: 120px;
-    margin-top: 0px;
-}
+    .parent_middel_container {
+        gap: 10px;
+    }
 
-.parent_bottom_container {
-    height: 28vh;
-    margin-top:10px;
-}
+    .card {
+        width: 320px;
+        height: 110px;
+        padding: 5px;
+        padding-left: 15px;
+    }
 
-hr {
-    margin: 0px 0;
-}
-.parent_middel_container_heading {
-    font-size: 14px;
-}
-.parent_bottom_container_table {
-    margin-top: 5px;
-    font-size: 12px;
-}
+    .parent_middel_container_top {
+        height: 30px;
+    }
+
+    .parent_middel_container_top_image {
+        width: 30px;
+        height: 30px;
+    }
+
+    .customer_satisfaction_png {
+        width: 90%;
+        height: 90%;
+    }
+
+    .parent_middel_container_top_heading {
+        font-size: 14px;
+    }
+
+    .card_content_p {
+        font-size: 10px;
+    }
+
+    .card_button {
+        height: 20px;
+        width: 120px;
+        margin-top: 0px;
+    }
+
+    .parent_bottom_container {
+        height: 28vh;
+        margin-top: 10px;
+    }
+
+    hr {
+        margin: 0px 0;
+    }
+
+    .parent_middel_container_heading {
+        font-size: 14px;
+    }
+
+    .parent_bottom_container_table {
+        margin-top: 5px;
+        font-size: 12px;
+    }
 }

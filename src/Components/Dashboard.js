@@ -702,7 +702,9 @@ import ticketicon from './Assets/ticketsblue.png';
 import resolvedicon from './Assets/resolveddashboard.png';
 import resolutiontimeicon from './Assets/hoursglassyellow.png';
 import responsetimeicon from './Assets/leftturnblue.png';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, } from 'recharts';
+import { format, startOfWeek, endOfWeek } from 'date-fns';
+
 const API_URL = process.env.REACT_APP_API_URL;
 
 
@@ -737,7 +739,6 @@ const DashboardCompo = () => {
         const formattedStartDate = formatDate(startDate);
         const formattedEndDate = formatDate(endDate);
 
-        // Fetch karo data
         fetch(`${API_URL}/dashboard?startDate=${formattedStartDate}&endDate=${formattedEndDate}`)
             .then((res) => res.json())
             .then((data) => {
@@ -796,7 +797,7 @@ const DashboardCompo = () => {
         fetch(`${API_URL}/chartdata?startDate=${formattedStartDate}&endDate=${formattedEndDate}&groupBy=${period}`)
             .then((res) => res.json())
             .then((data) => {
-                console.log("Fetched Chart Data: ", data);
+                // console.log("Fetched Chart Data: ", data);
                 const formatted = data.map((item) => ({
                     name: item.period,
                     tickets: item.totalTickets,
@@ -839,6 +840,39 @@ const DashboardCompo = () => {
             <line x1={x + width} y1={y} x2={x + width} y2={y + height} stroke="#4aabed" strokeWidth={2} />
         </>
     );
+
+    const CustomLegend = (props) => {
+        const { payload } = props;
+        return (
+            <div style={{ display: 'flex', justifyContent: 'center', padding: '10px 0' }}>
+                {payload.map((entry, index) => (
+                    <div
+                        key={`item-${index}`}
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            marginRight: 20,
+                            cursor: 'pointer',
+                        }}
+                    >
+                        <div
+                            style={{
+                                width: 30,
+                                height: 8,
+                                backgroundColor: entry.color,
+                                border: `2px solid #4aabed`,
+                                marginRight: 8,
+
+                            }}
+                        />
+                        <span style={{ color: '#333', fontSize: 12 }}>{entry.value}</span>
+                    </div>
+                ))}
+            </div>
+        );
+    };
+
+
     return (
         <div className='parent_container_dashboard'>
             <div className='parent_container_dashboard_heading'>
@@ -926,25 +960,80 @@ const DashboardCompo = () => {
                     </div>
                 </div>
                 <hr />
+
                 <div style={{ width: '100%', height: 450 }} className='bottom_conatiner_parent_barchart'>
-                    <Legend />
+
+                    <CustomLegend
+                        payload={[
+                            { value: 'New Tickets', color: '#d7ecfb' }
+                        ]}
+                    />
+
+
                     <ResponsiveContainer>
-                        <BarChart 
-                        className='barchart_dashboard'
-                        data={dataToShow}
+
+                        <BarChart
+                            className='barchart_dashboard'
+                            data={dataToShow}
                             margin={{ top: 10, right: 30, left: 30, bottom: 80 }}>
                             <CartesianGrid strokeDasharray="1 1" />
-                            <XAxis dataKey="name"
+                            {/* <Legend content={<CustomLegend />} /> */}
+                            {/* <XAxis dataKey="name"
                                 angle={-45}
                                 textAnchor="end"
-                                interval={0} />
+                                interval={0} /> */}
+
+
+                            <XAxis
+                                dataKey="name"
+                                angle={-45}
+                                textAnchor="end"
+                                interval={0}
+                                tickFormatter={(value) => {
+                                    if (period === 'daily') {
+                                        return value;
+                                    }
+
+                                    if (period === 'monthly') {
+                                        try {
+                                            const date = new Date(`${value}-01`);
+                                            return format(date, 'MMM yyyy');
+                                        } catch (e) {
+                                            console.error('Invalid date in monthly:', value);
+                                            return value;
+                                        }
+                                    }
+
+                                    if (period === 'weekly') {
+
+                                        const [yearStr, weekStrNum] = value.split('-');
+                                        const year = parseInt(yearStr);
+                                        const week = parseInt(weekStrNum);
+
+
+                                        const jan4 = new Date(year, 0, 4);
+                                        const week1Start = startOfWeek(jan4, { weekStartsOn: 1 });
+                                        const weekStart = new Date(week1Start);
+                                        weekStart.setDate(week1Start.getDate() + (week - 1) * 7);
+                                        const weekEnd = endOfWeek(weekStart, { weekStartsOn: 1 });
+
+                                        return `${format(weekStart, 'dd MMM')} - ${format(weekEnd, 'dd MMM')}`;
+                                    }
+
+                                    return value;
+                                }}
+                                tick={{ fontSize: 12 }}
+                            />
+
                             <YAxis
                                 tickCount={9}
                                 domain={[0, 'auto']} />
                             <Tooltip cursor={{ fill: 'transparent' }} />
                             {/* <Tooltip cursor={{ fill: '#ccc', opacity: 0.2, width: 2 }} /> */}
 
+
                             <Bar dataKey="tickets" fill="#d7ecfb" barSize={200} shape={<CustomBar />} />
+
                         </BarChart>
                     </ResponsiveContainer>
                 </div>

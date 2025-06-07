@@ -516,7 +516,7 @@ const TicketSystemCompo = () => {
                     <h5 className='card_heading'>Resolution Time Distribution</h5>
                     <hr />
                     <BarChart
-                    className='barchart_ticketsystem'
+                        className='barchart_ticketsystem'
                         width={900}
                         height={350}
                         data={barData}
@@ -597,4 +597,3 @@ const TicketSystemCompo = () => {
 }
 
 export default TicketSystemCompo;
-

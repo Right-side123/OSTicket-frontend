@@ -9,7 +9,7 @@ function App() {
     <Router>
       <div>
         <HeaderCompo />
-        
+
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/reports" element={<Reports />} />
