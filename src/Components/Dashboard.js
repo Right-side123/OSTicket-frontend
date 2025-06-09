@@ -702,6 +702,7 @@ import ticketicon from './Assets/ticketsblue.png';
 import resolvedicon from './Assets/resolveddashboard.png';
 import resolutiontimeicon from './Assets/hoursglassyellow.png';
 import responsetimeicon from './Assets/leftturnblue.png';
+import refreshbtn from './Assets/refressbtn.png'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, } from 'recharts';
 import { format, startOfWeek, endOfWeek } from 'date-fns';
 
@@ -892,12 +893,15 @@ const DashboardCompo = () => {
                             <option value="15">Last 15 Days</option>
                             <option value="7">Last 7 Days</option>
                         </select>
-                        <button
-                            className='parent_container_dashboard_top_right_button_btn'
-                            onClick={() => setDateRange(tempdaterange)}
-                        >
-                            Update
-                        </button>
+                        <div className='parent_container_dashboard_top_right_button_btn'>
+                            <img src={refreshbtn} alt='update' className='refressicon'/>
+                            <button
+                                className='parent_container_dashboard_top_right_button_btn'
+                                onClick={() => setDateRange(tempdaterange)}
+                            >
+                                Update
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

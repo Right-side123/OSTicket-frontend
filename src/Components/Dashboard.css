@@ -27,18 +27,30 @@
 .parent_container_dashboard_top_right_button {
     display: flex;
     gap: 10px;
-    height: 40px;
+    height: 45px;
 }
 
 .parent_container_dashboard_top_right_button_btn {
+    display: block;
     background-color: #0056b3;
     border: none;
     color: #ffffff;
     border-radius: 3px;
+    text-align: center;
+    font-size: 14px;
+    width: 75px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    line-height: 10px;
 }
 
 .parent_container_dashboard_top_right_button_btn:hover {
     box-shadow: 0px 2px 4px #023975;
+}
+
+.refressicon {
+    width: 18px;
+    height: 18px;
 }
 
 .middle_container_parent {
@@ -172,7 +184,23 @@
 
     .parent_container_dashboard_top_right_button {
         gap: 5px;
-        height: 30px;
+        height: 33px;
+    }
+
+    .parent_container_dashboard_top_right_button_btn {
+        font-size: 12px;
+        width: 65px;
+        padding-top: 2px;
+        padding-bottom: 3px;
+    }
+
+    .parent_container_dashboard_top_right_button_btn:hover {
+        box-shadow: 0px 2px 4px #023975;
+    }
+
+    .refressicon {
+        width: 15px;
+        height: 15px;
     }
 
     .middle_container_parent {

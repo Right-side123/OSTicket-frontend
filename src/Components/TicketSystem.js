@@ -424,8 +424,8 @@ const TicketSystemCompo = () => {
                 b.assigned - a.assigned);
         } else if (value === 'time') {
             sortedData.sort((a, b) =>
-                parseFloat(a.resolutiontime) -
-                parseFloat(b.resolutiontime));
+                parseFloat(a.avg_resolution_time) -
+                parseFloat(b.avg_resolution_time));
         }
         setData(sortedData);
     };
