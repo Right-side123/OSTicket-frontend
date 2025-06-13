@@ -894,7 +894,7 @@ const DashboardCompo = () => {
                             <option value="7">Last 7 Days</option>
                         </select>
                         <div className='parent_container_dashboard_top_right_button_btn'>
-                            <img src={refreshbtn} alt='update' className='refressicon'/>
+                            <img src={refreshbtn} alt='update' className='refressicon' />
                             <button
                                 className='parent_container_dashboard_top_right_button_btn'
                                 onClick={() => setDateRange(tempdaterange)}
@@ -999,10 +999,11 @@ const DashboardCompo = () => {
 
                                     if (period === 'monthly') {
                                         try {
+                                            // console.log(value);
                                             const date = new Date(`${value}-01`);
                                             return format(date, 'MMM yyyy');
                                         } catch (e) {
-                                            console.error('Invalid date in monthly:', value);
+                                            // console.error(' Skip Invalid date in monthly:', value);
                                             return value;
                                         }
                                     }

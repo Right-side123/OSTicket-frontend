@@ -357,9 +357,8 @@ const TicketSystemCompo = () => {
     //     { name: 'Ajay', assigned: 80, closed: 40, closerrate: '50%', responsetime: '1.42h', resolutiontime: '1.2h' }
     // ])
 
-    const pieFillColors = ['#ffe0e6', '#f4f4f4', '#ebe0ff', '#ffecd9', '#dbf2f2', '#fff5dd', '#d7ecfb'];
-    const pieBorderColors = ['#e899a5', '#cccccc', '#bfa8f2', '#ffbb99', '#99d6d6', '#ffddaa', '#99c2f2'];
-
+    const pieFillColors = ['#dbf2f2', '#d7ecfb', '#ffecd9', '#fff5dd', '#ebe0ff', '#f4f4f4', '#ffe0e6'];
+    const pieBorderColors = ['#b2e6e6', '#9ed6ff', '#f1c293', '#f8dd9f', '#c1ace7', '#d8d5d5', '#faacbb'];
 
     const barColors = ['#dbf2f2', '#d7ecfb', '#d5bfff', '#fff5dd', '#ffecd9', '#ffe0e6', '#f4f4f4'];
     const barBorderColors = ['#bae7e7', '#a8d7f6', '#d2bcff', '#fff0ce', '#ffd6af', '#ffb9c8', '#e6e6e6'];
